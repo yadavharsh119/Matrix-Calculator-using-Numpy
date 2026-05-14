@@ -45,8 +45,15 @@ class Matrix:
         elif choice == 0:
             return self.amatrix@self.bmatrix
         else:
-            return np.dot(amatrix,bmatrix)
+            return np.dot(self.amatrix,self.bmatrix)
+    def matrixtranspose(self):
+        transmatrix = np.empty((self.amatrix.shape[2],self.amatrix.shape[1],self.amatrix.shape[0]))
+        for k in range(self.amatrix.shape[2]):
+            for i in range(self.amatrix.shape[1]):
+                for j in range(self.amatrix.shape[0]):
+                    transmatrix[k,i,j] = self.amatrix[k,j,i]
+        return transmatrix
 o1 = Matrix()
 o1.inputm()
-print(o1.matrixmultiplicatn())
+print(o1.matrixtranspose())
 
