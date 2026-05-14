@@ -35,11 +35,17 @@ class Matrix:
         return self.amatrix - self.bmatrix
     def matrixmultiplicatn(self):
         cmatrix = np.zeros((self.amatrix.shape[0],self.bmatrix.shape[1]))
-        for i in range(self.amatrix.shape[0]):
-            for j in range(self.bmatrix.shape[1]) :
-                for k in range(self.amatrix.shape[1]):
-                    cmatrix[i,j] += self.amatrix[i,k]*self.bmatrix[k,j]
-        return cmatrix
+        # ~ for i in range(self.amatrix.shape[0]):
+            # ~ for j in range(self.bmatrix.shape[1]) :
+                # ~ for k in range(self.amatrix.shape[1]):
+                    # ~ cmatrix[i,j] += self.amatrix[i,k]*self.bmatrix[k,j]
+        choice = int(input("Elementwise Multiplication(0) or Matrix Multiplication(1) or Dot Product? "))
+        if(choice):
+            return self.amatrix*self.bmatrix
+        elif choice == 0:
+            return self.amatrix@self.bmatrix
+        else:
+            return np.dot(amatrix,bmatrix)
 o1 = Matrix()
 o1.inputm()
 print(o1.matrixmultiplicatn())
